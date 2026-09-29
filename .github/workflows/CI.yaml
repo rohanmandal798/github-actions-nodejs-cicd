@@ -17,9 +17,9 @@ jobs:
         uses: appleboy/ssh-action@v1.2.2
         with:
           host: ${{ secrets.SSH_HOST }}
-          username: rohan
+          username: kali
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/rohan/github-actions-nodejs-cicd
+            cd /home/kali/github-actions-nodejs-cicd
             git pull origin main
             docker-compose up -d --build
