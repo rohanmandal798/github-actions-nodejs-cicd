@@ -1,7 +1,12 @@
 services:
 
   github-actions-nodejs-app:
-    image: github-actions
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: github-actions-nodejs-cicd:latest
+
     container_name: github-actions-nodejs-app
 
     ports:
