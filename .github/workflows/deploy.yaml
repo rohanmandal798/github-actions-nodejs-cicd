@@ -13,11 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -25,7 +20,6 @@ jobs:
           username: kali
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            set -e
             cd /home/kali/github-actions-nodejs-cicd
             git pull
             docker-compose up -d --build
