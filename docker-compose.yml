@@ -1,0 +1,10 @@
+services:
+
+  github-actions-nodejs-app:
+    image: github-actions
+    container_name: github-actions-nodejs-app
+
+    ports:
+      - "3000:3000"
+
+    restart: unless-stopped
