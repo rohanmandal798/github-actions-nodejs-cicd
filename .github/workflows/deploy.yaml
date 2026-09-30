@@ -19,14 +19,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: kali
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          timeout: 30m
-          script_stop: true
           script: |
-            set -x  # Print each command for debugging
-            echo "Starting deployment..."
-            cd /home/kali/github-actions-nodejs-cicd || exit 1
-            echo "Pulling latest code..."
-            git pull --timeout=10
-            echo "Building and starting containers..."
-            timeout 15m docker-compose up -d --build || exit 1
-            echo "Deployment complete!"
+            cd /home/kali/github-actions-nodejs-cicd
+            git pull
+            docker-compose up -d --build

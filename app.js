@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
-    res.send("Hello, This is from Rohan kumari Mandal, Learning and Implementing GitHub Actions CI/CD!");
+    res.send("Hello, This is from Rohan kr Mandal, Learning and Implementing GitHub Actions CI/CD!");
 });
 
 app.get("/health", (req, res) => {
